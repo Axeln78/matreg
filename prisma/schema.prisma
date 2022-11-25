@@ -1,0 +1,127 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://manager:WF5p9epehVMdl6o1R7@gql.matreg.info:5432/registry"
+}
+
+model Building {
+  //id uuid @id @default(uuid())
+  id        String            @id @default(uuid()) @db.Uuid
+  name      String
+  address   String
+  createdAt DateTime          @default(now()) @map("created_at")
+  updatedAt DateTime          @updatedAt @map("updated_at")
+  products  ProductInstance[]
+  passport  Passport[]
+
+  @@map("buildings")
+}
+
+model ProductInstance {
+  id         String     @id @default(uuid()) @db.Uuid
+  name       String
+  createdAt  DateTime   @default(now()) @map("created_at")
+  updatedAt  DateTime   @updatedAt @map("updated_at")
+  product    Product    @relation(fields: [productId], references: [id])
+  productId  String     @map("product_id") @db.Uuid
+  building   Building   @relation(fields: [buildingId], references: [id])
+  buildingId String     @map("building_id") @db.Uuid
+  speckleId  String     @map("speckle_id") @db.Uuid
+  passport   Passport[]
+
+  @@map("product_instances")
+}
+
+model Product {
+  id        String            @id @default(uuid()) @db.Uuid
+  name      String
+  createdAt DateTime          @default(now()) @map("created_at")
+  updatedAt DateTime          @updatedAt @map("updated_at")
+  instances ProductInstance[]
+  elements  Element[]
+  passport  Passport[]
+
+  @@map("products")
+}
+
+model Element {
+  id        String             @id @default(uuid()) @db.Uuid
+  name      String
+  createdAt DateTime           @default(now()) @map("created_at")
+  updatedAt DateTime           @updatedAt @map("updated_at")
+  product   Product            @relation(fields: [productId], references: [id])
+  productId String             @map("product_id") @db.Uuid
+  materials MaterialInstance[]
+  passport  Passport[]
+
+  @@map("elements")
+}
+
+model MaterialInstance {
+  id         String     @id @default(uuid()) @db.Uuid
+  name       String
+  createdAt  DateTime   @default(now()) @map("created_at")
+  updatedAt  DateTime   @updatedAt @map("updated_at")
+  material   Material   @relation(fields: [materialId], references: [id])
+  materialId String     @map("material_id") @db.Uuid
+  element    Element    @relation(fields: [elementId], references: [id])
+  elementId  String     @map("element_id") @db.Uuid
+  passport   Passport[]
+
+  @@map("material_instances")
+}
+
+model Material {
+  id        String             @id @default(uuid()) @db.Uuid
+  name      String
+  createdAt DateTime           @default(now()) @map("created_at")
+  updatedAt DateTime           @updatedAt @map("updated_at")
+  instances MaterialInstance[]
+  passport  Passport[]
+
+  @@map("materials")
+}
+
+model Passport {
+  id        String        @id @default(uuid()) @db.Uuid
+  name      String
+  type      PasportType[]
+  data      Json
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @updatedAt @map("updated_at")
+
+  material   Material @relation(fields: [materialId], references: [id])
+  materialId String   @map("material_id") @db.Uuid
+
+  materialInstance   MaterialInstance @relation(fields: [materialInstanceId], references: [id])
+  materialInstanceId String           @map("material_instance_id") @db.Uuid
+
+  element   Element @relation(fields: [elementId], references: [id])
+  elementId String  @map("element_id") @db.Uuid
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId String  @map("product_id") @db.Uuid
+
+  productInstance   ProductInstance @relation(fields: [productInstanceId], references: [id])
+  productInstanceId String          @map("product_instance_id") @db.Uuid
+
+  building   Building @relation(fields: [buildingId], references: [id])
+  buildingId String   @map("building_id") @db.Uuid
+
+  @@map("passports")
+}
+
+enum PasportType {
+  Building
+  Product
+  Element
+  Material
+
+  @@map("passport_types")
+}

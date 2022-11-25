@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "baseUrl": "src/",
+    "baseUrl": ".",
     "typeRoots": ["src/types", "src/common/types", "node_modules/@types"],
     "strict": true,
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -23,9 +23,15 @@
       "@common": ["../../../libs/common/src/index.ts"],
       "@ui": ["../../../libs/components/src/index.ts"],
       "@ui/*": ["../../../libs/ui/src/*"],
-      "@assets/*": ["../../../libs/assets/*"]
-    }
+      "@assets/*": ["../../../libs/assets/*"],
+      "#/*": ["./*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["src"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

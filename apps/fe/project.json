@@ -25,7 +25,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "fe:build",
-        "dev": true,
+
         "port": 3000,
         "buildLibsFromSource": true
       },

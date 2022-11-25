@@ -5,7 +5,6 @@
     "assets": "libs/assets",
     "be": "apps/be",
     "common": "libs/common",
-    "eco-api": "apps/eco-api",
     "fe": "apps/fe",
     "speckle-viewer": "libs/speckle-viewer",
     "ui": "libs/ui"
