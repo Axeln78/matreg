@@ -16,7 +16,8 @@ export default function Test(props: ProjectProps) {
           {
             server: 'https://speckle.xyz',
             streamId: '92681d64c6',
-            objectId: 'fc24d43a58e94d6251416877435d3a67',
+            // objectId: 'fc24d43a58e94d6251416877435d3a67',
+            objectId:'a1f4cbdb40b6e09034cc75f3bd18d500'
           },
         ],
       },

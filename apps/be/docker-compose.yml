@@ -39,25 +39,28 @@ services:
 
   hasura:
     <<: *logs_defaults
-    image: hasura/graphql-engine:v2.13.0-beta.1.cli-migrations-v3.ubuntu
+    image: hasura/graphql-engine:v2.14.0.cli-migrations-v3
     ports:
-      - "8080"
+      - '8080:8080'
     depends_on:
       - postgres
     restart: always
     environment:
-      HASURA_GRAPHQL_DATABASE_URL: "host=postgres dbname=matreg port=5432 user=${DB_LOGIN} password=${DB_PASSWORD}"
-      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
-      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_DATABASE_URL: 'host=postgres dbname=matreg port=5432 user=${DB_LOGIN} password=${DB_PASSWORD}'
+      HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
+      HASURA_GRAPHQL_DEV_MODE: 'true'
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
-      HASURA_GRAPHQL_ADMIN_SECRET: "$DB_PASSWORD"
-      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: "anonymous"
-      HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "$JWT_SECRET", "issuer":"hasura-auth"}'
+      HASURA_GRAPHQL_ADMIN_SECRET: '$DB_PASSWORD'
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: 'public'
+      HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS512", "key": "$JWT_SECRET"}'
       HASURA_GRAPHQL_ENABLE_REMOTE_SCHEMA_PERMISSIONS: 'true'
       HASURA_GRAPHQL_DEFAULT_NAMING_CONVENTION: 'graphql-default'
       HASURA_GRAPHQL_EXPERIMENTAL_FEATURES: 'naming_convention'
-      HASURA_GRAPHQL_MIGRATIONS_DIR: /matreg/migrations
-      HASURA_GRAPHQL_METADATA_DIR: /matreg/metadata
+      HASURA_GRAPHQL_MIGRATIONS_DIR: /config/hasura/migrations
+      HASURA_GRAPHQL_METADATA_DIR: /config/hasura/metadata
+    # volumes:
+    #   - ./config/hasura/metadata:/hasura-metadata
+    #   - ./config/hasura/migrations:/hasura-migrations
 
   hasura-auth:
     <<: *logs_defaults
