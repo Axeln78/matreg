@@ -5,6 +5,10 @@ const withNx = require('@nrwl/next/plugins/with-nx');
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+
   nx: {
     // Set this to true if you would like to to use SVGR
     // See: https://github.com/gregberge/svgr
@@ -32,10 +36,10 @@ const nextConfig = {
     );
     return config;
   },
-  pwa: {
-    dest: 'public',
-    disable: process.env.NODE_ENV === 'development',
-  },
+  // pwa: {
+  //   dest: 'public',
+  //   disable: process.env.NODE_ENV === 'development',
+  // },
   compiler: {
     styledComponents: true,
   },
