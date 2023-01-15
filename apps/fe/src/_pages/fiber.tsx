@@ -1,3 +1,4 @@
+'use client';
 // index page
 
 import React, { useEffect } from 'react';

@@ -4,10 +4,12 @@
   "projects": {
     "assets": "libs/assets",
     "be": "apps/be",
+    "canvas": "libs/canvas",
     "common": "libs/common",
     "eco-api": "apps/eco-api",
     "fe": "apps/fe",
     "speckle-viewer": "libs/speckle-viewer",
+    "types": "libs/types",
     "ui": "libs/ui"
   }
 }

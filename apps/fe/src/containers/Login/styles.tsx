@@ -1,15 +1,4 @@
-import { ReactElement } from 'react';
-import styled, { css } from 'styled-components';
-import {
-  flexbox,
-  FlexProps,
-  layout,
-  LayoutProps,
-  position,
-  PositionProps,
-  space,
-  SpaceProps,
-} from 'styled-system';
+import styled from 'styled-components';
 import Link from 'next/link';
 
 export const FormControl = styled.form`

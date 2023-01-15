@@ -1,34 +1,33 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "baseUrl": "src/",
+    "typeRoots": ["src/types", "src/common/types", "node_modules/@types"],
     "strict": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
+    "noFallthroughCasesInSwitch": true,
+    "incremental": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node", "jest"],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "typeRoots": [
-      "next-env.d.ts"
-    ],
-    "baseUrl": "src/",
     "paths": {
-      "@speckle-viewer": [
-        "../../../libs/speckle-viewer/src/index.ts"
-      ],
-      "#/*": [
-        "./*"
-      ]
+      "@matreg/speckle-viewer": ["../../../libs/speckle-viewer/src/index.ts"],
+      "@matreg/canvas": ["../../../libs/canvas/src/index.ts"],
+      "@matreg/canvas/*": ["../../../libs/canvas/src/*"],
+      "@matreg/common": ["../../../libs/common/src/index.ts"],
+      "@matreg/ui": ["../../../libs/ui/src/index.ts"],
+      "@matreg/ui/*": ["../../../libs/ui/src/*"],
+      "@matreg/types": ["../../../libs/types/src/index.ts"],
+      "@matreg/types/*": ["../../../libs/types/src/*"],
+      "@matreg/assets/*": ["../../../libs/assets/*"]
     },
     "plugins": [
       {
@@ -37,15 +36,11 @@
     ]
   },
   "include": [
-    "next-env.d.ts",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
+    "src",
+    "app",
+    "shared",
     "../../apps/fe/.next/types/**/*.ts",
-    "../../dist/apps/fe/.next/types/**/*.ts"
+    "shared/sharedClientComponents.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

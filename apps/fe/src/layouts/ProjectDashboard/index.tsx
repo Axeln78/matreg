@@ -4,34 +4,31 @@ import 'tailwindcss/tailwind.css';
 import Viewer from 'containers/Viewer';
 import ViewerPreview from 'containers/ViewerPreview';
 import { useRecoilState } from 'recoil';
-import { atoms } from 'common/recoil';
+import { atoms } from '@matreg/common';
 import { SpeckleObject } from 'containers/Viewer';
 
 /* types */
-import type { Tab } from 'components/MenuSelector';
-import type { Stat } from 'components/MaterialsCards';
+import type { Tab, Stat } from '@matreg/ui';
 
 /* components */
 import {
   BuildingMetrics,
   RadioBuildingMetrics,
-} from 'components/MaterialsCards';
-import {
   MaterialsComposition,
   MaterialsTreeMap,
-} from 'components/MaterialsComposition';
-import Header from 'components/Header';
-import LogPage from 'components/LogPage';
-import MenuSelector from 'components/MenuSelector';
-import ElementInfoList from 'components/ElementInfo';
+  PanelHeader as Header,
+  LogPage, MenuSelector,
+  ElementInfoList,
+  BuildingTable,
+  PhaseDisplayer,
+  ProjectInfoList,
+  VisualProjectInfo,
+  EnvironmentalImpactTable,
+  CircularityBarChart,
+  FinancialProjection
+} from '@matreg/ui';
+
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import BuildingTable from 'components/Tables/BuidingTable';
-import { PhaseDisplayer } from 'components/PhaseDisplayer';
-import { ProjectInfoList } from 'components/ProjectInfoList';
-import VisualProjectInfo from 'components/VisualProjectInfo';
-import EnvironmentalImpactTable from 'components/Tables/EnvironmentalImpactTable';
-import CircularityBarChart from 'components/CircularityBarChart';
-import FinancialProjection from 'components/FinancialProjection';
 
 export type ProjectProps = {
   name: string;

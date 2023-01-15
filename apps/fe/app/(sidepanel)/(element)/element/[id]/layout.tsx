@@ -1,7 +1,6 @@
+'use client';
 import React from 'react';
-import Header from '#/src/components/Header';
-
-
+import { PanelHeader } from '@matreg/ui';
 
 export async function generateStaticParams() {
   const posts = [
@@ -33,7 +32,7 @@ export default function ElementLayout({
   console.log(params);
   return (
     <>
-      <Header title={params.id} details={params.id} />
+      <PanelHeader title={params.id} details={params.id} />
       <div>{children}</div>
     </>
   );

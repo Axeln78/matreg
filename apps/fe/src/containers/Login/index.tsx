@@ -1,15 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import {
   Block,
   Button,
   FormControl,
-  Header,
   SLink,
   Text,
   TextField,
 } from './styles';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 export default function Login() {
   const router = useRouter();

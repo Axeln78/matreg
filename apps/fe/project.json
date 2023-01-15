@@ -5,6 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
+      "postcssConfig": "apps/fe/postcss.config.js",
       "outputs": [
         "{options.outputPath}"
       ],
@@ -41,7 +42,7 @@
       }
     },
     "gql": {
-      "executor": "@dnrwl/workspace:run-commands",
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
         "cwd": "apps/fe",
         "command": "dotenv -- graphql-codegen --config codegen.yml"

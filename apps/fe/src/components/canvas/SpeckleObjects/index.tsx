@@ -1,7 +1,7 @@
 'use client';
 
 import { useBounds, useCursor } from '@react-three/drei';
-import { useLoadObject } from '@speckle-viewer';
+import { useLoadObject } from '@matreg/speckle-viewer';
 import { atoms } from 'common/recoil';
 import { SpeckleObject } from 'components/canvas/SpeckleObject';
 import { useEffect, useState } from 'react';

@@ -2,9 +2,7 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 import styled from 'styled-components';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { useState } from 'react';
-import { concatAST } from 'graphql';
-import { ReactComponent as Edit } from '@assets/icons/pencil.svg';
-import { EditButton } from 'components/EditButton';
+import { EditButton } from '@matreg/ui';
 
 const StyledTabs = styled(TabsPrimitive.Root)`
     display: flex;
@@ -386,8 +384,8 @@ function PropertiesCards(props: any) {
       </Box>
       <Grid>
         {props.props &&
-          props.props.map((prop: any) => (
-            <Card>
+          props.props.map((prop: any, i:number) => (
+            <Card key={i}>
               <H3>{prop.name}</H3>
             </Card>
           ))}

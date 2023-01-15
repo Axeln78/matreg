@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Converter } from '@speckle-viewer';
+import { Converter } from '@matreg/speckle-viewer';
 import { BufferGeometry } from 'three';
 
 export type Geometries = {

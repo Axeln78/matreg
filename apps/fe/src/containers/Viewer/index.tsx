@@ -1,17 +1,9 @@
-'use client';
-import { Suspense, useState } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
-import {
-  OrbitControls,
-  TransformControls,
-  ContactShadows,
-  useGLTF,
-  useCursor,
-  Stage,
-  Bounds,
-  Box,
-} from '@react-three/drei';
-import { SpeckleObjects } from '../../components/canvas/SpeckleObjects';
+'use clinet';
+
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Bounds } from '@react-three/drei';
+import { SpeckleObjects } from '@matreg/canvas/lib/SpeckleObjects';
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE } from 'recoil';
 
 type ViewerProps = {

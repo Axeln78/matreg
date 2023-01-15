@@ -1,12 +1,11 @@
-import { Suspense, useEffect, useState } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
-import { Bounds, OrbitControls, useBounds } from '@react-three/drei';
-import { SpeckleObjects } from 'components/canvas/SpeckleObjects';
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Bounds, OrbitControls } from '@react-three/drei';
 import {
   useRecoilBridgeAcrossReactRoots_UNSTABLE,
   useRecoilState,
 } from 'recoil';
-import { atoms } from 'common/recoil';
+import { atoms } from '@matreg/common';
 
 export default function ViewerPreview() {
   const RecoilBridge = useRecoilBridgeAcrossReactRoots_UNSTABLE();
