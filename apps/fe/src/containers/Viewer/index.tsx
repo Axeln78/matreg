@@ -1,3 +1,4 @@
+'use client';
 import { Suspense, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import {
@@ -8,8 +9,9 @@ import {
   useCursor,
   Stage,
   Bounds,
+  Box,
 } from '@react-three/drei';
-import { SpeckleObjects } from 'components/canvas/SpeckleObjects';
+import { SpeckleObjects } from '../../components/canvas/SpeckleObjects';
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE } from 'recoil';
 
 type ViewerProps = {

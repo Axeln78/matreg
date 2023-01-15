@@ -1,3 +1,5 @@
+'use client';
+
 import { useBounds, useCursor } from '@react-three/drei';
 import { useLoadObject } from '@speckle-viewer';
 import { atoms } from 'common/recoil';
@@ -40,7 +42,7 @@ export function SpeckleObjects({ objectUrl }: ObjectsProps) {
 
   useEffect(() => {
     if (selectedId) {
-      const selected = elements?.find((obj:any) => obj?.id === selectedId);
+      const selected = elements?.find((obj: any) => obj?.id === selectedId);
       if (selected) setSelectedObject(selected);
     } else setSelectedObject(null);
   }, [selectedId, setSelectedObject]);

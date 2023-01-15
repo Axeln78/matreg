@@ -1,9 +1,8 @@
-import { useCursor } from '@react-three/drei';
+'use client';
+
 import { useConvertToBuffer } from 'common/hooks';
-import { atoms } from 'common/recoil';
-import { useState } from 'react';
-import { useRecoilState } from 'recoil';
-import THREE from 'three';
+
+import * as THREE from 'three';
 
 type SpeckleGeometryProps = {
   object: any;

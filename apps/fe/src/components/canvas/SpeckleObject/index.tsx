@@ -1,9 +1,10 @@
+'use client';
+
 import { useBounds, useCursor } from '@react-three/drei';
 import { atoms } from 'common/recoil';
 import { SpeckleGeometry } from 'components/canvas/SpeckleGeometry';
 import { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import THREE from 'three';
 
 type ObjectProps = {
   object: any;

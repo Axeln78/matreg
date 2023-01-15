@@ -1,49 +1,33 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "baseUrl": "src/",
-    "typeRoots": [
-      "src/types",
-      "src/common/types",
-      "node_modules/@types"
-    ],
-    "strict": true,
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "jsx": "preserve",
-    "noFallthroughCasesInSwitch": true,
-    "incremental": true,
     "allowJs": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "types": [
-      "node",
-      "jest"
-    ],
+    "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "typeRoots": [
+      "next-env.d.ts"
+    ],
+    "baseUrl": "src/",
     "paths": {
       "@speckle-viewer": [
         "../../../libs/speckle-viewer/src/index.ts"
       ],
-      "@common": [
-        "../../../libs/common/src/index.ts"
-      ],
-      "@ui": [
-        "../../../libs/ui/src/index.ts"
-      ],
-      "@ui/*": [
-        "../../../libs/ui/src/*"
-      ],
-      "@assets/*": [
-        "../../../libs/assets/*"
+      "#/*": [
+        "./*"
       ]
     },
     "plugins": [
@@ -53,8 +37,13 @@
     ]
   },
   "include": [
-    "src",
-    "../../apps/fe/.next/types/**/*.ts"
+    "next-env.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../../apps/fe/.next/types/**/*.ts",
+    "../../dist/apps/fe/.next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
