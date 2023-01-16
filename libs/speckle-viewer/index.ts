@@ -1,3 +1,3 @@
 export * from './components/SpeckleViewer';
-export * from './common';
+export * from './common/objectLoader';
 export * from './viewer/index';
