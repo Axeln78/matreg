@@ -37,7 +37,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <RootRecoil>
-          <RecoilRouter />
           <SearchBar />
           <SidePanel>{children}</SidePanel>
           <div className="absolute w-screen h-screen">
