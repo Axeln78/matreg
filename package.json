@@ -24,7 +24,6 @@
     "@react-three/csg": "^1.1.5",
     "@react-three/drei": "^9.34.3",
     "@react-three/fiber": "^8.8.10",
-    "@react-three/postprocessing": "^2.7.0",
     "@speckle/objectloader": "^2.9.0",
     "@speckle/viewer": "^2.9.0",
     "@svgr/webpack": "^6.5.0",

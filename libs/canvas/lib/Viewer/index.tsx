@@ -7,10 +7,10 @@ import { SpeckleObjects } from '@matr/canvas';
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE } from 'recoil';
 
 type ViewerProps = {
-  speckleObjects?: SpeckleObject[];
+  speckleObjects?: SpeckleObjectProps[];
 };
 
-export type SpeckleObject = {
+export type SpeckleObjectProps = {
   server: string;
   streamId: string;
   objectId: string;
