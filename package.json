@@ -1,11 +1,16 @@
 {
-  "name": "matreg",
+  "name": "matr",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "start": "next start",
+    "test": "yarn prettier:check && yarn lint"
   },
   "private": true,
   "dependencies": {
@@ -29,8 +34,6 @@
     "@svgr/webpack": "^6.5.0",
     "@tanstack/react-table": "^8.7.3",
     "@types/styled-system": "^5.1.15",
-    "apollo": "^2.34.0",
-    "apollo-server-express": "^3.10.2",
     "camera-controls": "^1.37.3",
     "core-js": "^3.6.5",
     "dotenv": "^16.0.3",
