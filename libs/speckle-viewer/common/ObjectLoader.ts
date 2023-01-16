@@ -40,6 +40,7 @@ export function useLoadObject(objectUrl: string) {
         for await (const obj of loader.getObjectIterator()) {
           if (first) {
             firstObjectPromise = converter.traverseAndConvert(
+              // @ts-ignore
               obj,
               async (objectWrapper: any) => {
                 objectWrapper.meta._importedUrl = objectUrl;
@@ -47,6 +48,7 @@ export function useLoadObject(objectUrl: string) {
               }
             );
             first = false;
+            // @ts-ignore
             total = obj.totalChildrenCount;
           }
           setObjects((prev: any) => {
@@ -57,6 +59,7 @@ export function useLoadObject(objectUrl: string) {
           });
         }
       })();
+      // @ts-ignore
       setLoader(loader);
     }
   }, [objectUrl]);
