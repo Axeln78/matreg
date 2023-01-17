@@ -44,7 +44,12 @@ export default function MenuSelector(props: MenuSelectorProps) {
         <RadioGroup.Label className="sr-only"></RadioGroup.Label>
         <div className="grid grid-cols-4 gap-1 bg-gray-500 rounded-full cursor-pointer">
           {tabs.map((tab) => (
-            <MenuItem id={tab.id} name={tab.name} path={props.path} />
+            <MenuItem
+              id={tab.id}
+              name={tab.name}
+              path={props.path}
+              key={props.path+tab.id}
+            />
           ))}
         </div>
       </RadioGroup>

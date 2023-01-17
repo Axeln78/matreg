@@ -56,14 +56,6 @@ const defaultStats: Stat[] = [
     bgColor: 'bg-gray-300',
     textColor: 'text-gray-700',
   },
-  {
-    name: 'Other',
-    value: '24.57',
-    target: 100,
-    unit: '%',
-    bgColor: 'bg-gray-300',
-    textColor: 'text-gray-700',
-  },
 ];
 
 export interface MetricsRadioGroupProps {

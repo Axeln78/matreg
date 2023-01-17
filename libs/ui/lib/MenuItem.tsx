@@ -10,7 +10,7 @@ function classNames(...classes: string[]) {
 
 export type Tab = {
   name: string;
-  id: string;
+  id?: string;
   path: string;
 };
 
