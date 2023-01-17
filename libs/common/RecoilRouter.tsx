@@ -1,9 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { atoms } from '@matr/common/recoil';
-import { useRouter, usePathname } from 'next/navigation';
+import {
+  useRouter,
+  usePathname,
+  useSelectedLayoutSegments,
+} from 'next/navigation';
 import React from 'react';
 
 export default function RecoilRouter() {
@@ -12,19 +16,26 @@ export default function RecoilRouter() {
   );
   const pathname = usePathname();
   const router = useRouter();
+  const segments = useSelectedLayoutSegments();
+
+  const [mode, setMode] = useState('building');
 
   useEffect(() => {
-    if (pathname!.split('/')[1] === 'element')
-      setSelectedObjectId(pathname!.split('/')[2]);
-  }, [pathname, setSelectedObjectId]);
+    if (segments[1] === 'element') {
+      setMode('element');
+    } else {
+      setMode('building');
+    }
+  }, [segments]);
 
   useEffect(() => {
+    console.log(mode);
     if (selectedObjectId) {
       router.replace(`/element/${selectedObjectId}`);
-    } else {
-      router.replace(`/building/revit`);
+    } else if (mode === 'element') {
+      router.replace('/building/revit');
     }
-  }, [router, selectedObjectId]);
+  }, [router, selectedObjectId, mode]);
 
   return <></>;
 }
