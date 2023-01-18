@@ -1,7 +1,5 @@
 'use client';
 
-export * from './lib/InfoCard';
-export * from './lib/PrimaryButton';
 export * from './lib/Tables';
 export { default as CircularityBarChart } from './lib/CircularityBarChart';
 export type { barChartProps } from './lib/CircularityBarChart';
