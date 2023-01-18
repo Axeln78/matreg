@@ -116,7 +116,7 @@ export function BuildingMetrics(props: MetricsRadioGroupProps) {
 
   return (
     <div>
-      <div className="py-5">
+      <div className="pt-5">
         <h3 className="text-lg font-medium leading-6 text-gray-900">
           Building Metrics
         </h3>
@@ -166,9 +166,9 @@ export function RadioBuildingMetrics(props: MetricsRadioGroupProps) {
   return (
     <div className="py-5">
       <h3 className="text-lg font-medium leading-6 text-gray-900">Materials</h3>
-      <RadioGroup value={selected} onChange={setSelected} className="mt-2">
+      <RadioGroup value={selected} onChange={setSelected} className="mt-2 overflow-scroll">
         <RadioGroup.Label className="sr-only"></RadioGroup.Label>
-        <dl className="overflow-x-auto whitespace-nowrap grid grid-rows-1 grid-flow-col gap-3 ">
+        <dl className="overflow-scroll whitespace-nowrap grid grid-rows-1 grid-flow-col gap-3 ">
           {stats.map((item) => (
             <RadioGroup.Option
               key={item.name}

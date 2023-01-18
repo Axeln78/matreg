@@ -32,7 +32,7 @@ export default function ElementLayout({
   params: { id: string };
 }) {
   return (
-    <>
+    <div className="m-2">
       <PanelHeader title={params.id} details={params.id} />
       <>
         <div className=" items-center justify-between ">
@@ -47,6 +47,6 @@ export default function ElementLayout({
       </>
       <MenuSelector tabs={elementConfig} path={'/element' + '/' + params.id} />
       <div>{children}</div>
-    </>
+    </div>
   );
 }

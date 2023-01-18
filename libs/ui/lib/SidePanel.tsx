@@ -2,11 +2,10 @@ import React from 'react';
 
 export default function SidePanel({ children }: { children: React.ReactNode }) {
   return (
-    <div className=" absolute right-1 top-2 w-[480px] z-10 ">
+    <div className="absolute right-1 top-2 w-[480px] z-10 ">
       <div className="bg-white rounded-lg pb-1 shadow-xl">
-        <div className="bg-white rounded-lg pb-1 shadow-xl">
-          {children}
-          {/* <Header title={props.name} details={props.description} />
+        {children}
+        {/* <Header title={props.name} details={props.description} />
 
         {selected && (
           <>
@@ -68,7 +67,6 @@ export default function SidePanel({ children }: { children: React.ReactNode }) {
           )}
         </div>
          */}
-        </div>
       </div>
     </div>
   );

@@ -20,13 +20,13 @@ export default function ElementLayout({
   params: { id: string; elementId: string };
 }) {
   return (
-    <>
+    <div className='m-2'>
       <PanelHeader title={params.id} details={params.id} />
       <MenuSelector
         tabs={buildingConfig}
         path={'/building' + '/' + params.id}
       />
       <div>{children}</div>
-    </>
+    </div>
   );
 }
